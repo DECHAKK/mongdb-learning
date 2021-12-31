@@ -23,13 +23,13 @@ mongoose
     app.use(morgan("dev"));
     app.use(bordyPaser.urlencoded({ extended: false }));
     app.use(bordyPaser.json());
-    const port = process.env.PORT || 5000;
+  
     
      // for require all file any Rounter 
     readdirSync("./routers").map((r) => {app.use("/api/v1", require("./routers/" + r));
     });
     // app.use('/api/v1/',Register);
-    app.listen(port, () => {
+    app.listen(process.env.PORT || 5000, () => {
       console.log(`server is runing on port ${port}`);
     });
   })
